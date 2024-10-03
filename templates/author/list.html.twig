@@ -142,7 +142,7 @@ p {
     </header>
     <main>
         {% set tot_livr = 0 %}
-        {% if authors is empty %}
+        {% if Authors is empty %}
         <h1>Aucun auteur n'est disponible.</h1>
         {% else %}
         <table>
@@ -157,13 +157,13 @@ p {
                 </tr>
             </thead>
             <tbody>
-                {% for author in authors %}
+                {% for author in Authors %}
                 <tr>
                     <td>{{ author.id }}</td>
                     <td><img src="{{ asset(author.picture) }}" alt="{{ author.username }}" width="120" height="100"></td>
                     <td>{{ author.username | upper }}</td>
                     <td>{{ author.email }}</td>
-                    <td>{{ author.nb_books }}</td>
+                    
                     <td><a href="{{ path('authorDetails ', { id: author.id }) }}" class="details-link">Détails</a></td>
                 </tr>
                 {% endfor %}
@@ -172,13 +172,13 @@ p {
         {% endif %}
 
         <div class="summary">
-            <p>Le nombre d'auteurs est : {{ authors|length }}</p>
+            <p>Le nombre d'auteurs est : {{ Authors|length }}</p>
 
-            {% for author in authors %}
-            {% set tot_livr = tot_livr + author.nb_books %}
+            {% for author in Authors %}
+            
             {% endfor %}
 
-            <p>Le nombre total de livres est : {{ tot_livr }}</p>
+            
         </div>
 
         
